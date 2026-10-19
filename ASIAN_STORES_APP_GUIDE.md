@@ -1,35 +1,35 @@
-# Asian Stores Mobile App — Complete Demo Implementation
+# Asian Stores Mobile Application — Architecture & Implementation Guide
 
-A mobile app conversion of [Asian Stores (asianstores.in)](https://asianstores.in/) built with a **White and Green color palette**, complete hardcoded demo interactivity where **every single button works**, provided in **both React Native (Expo SDK 58) and Flutter**, with APK generation support.
+A mobile client conversion of [Asian Stores (asianstores.in)](https://asianstores.in/) built with an organic White and Green color palette, complete deterministic demo interactivity where every control is fully operational, provided simultaneously in React Native (Expo SDK 58) and Flutter, with standalone Android APK compilation support.
 
 ---
 
-## 🎨 Color Palette & Visual Identity
+## Color Palette & Visual Identity
 
-The design replicates the Asian Stores branding with a clean, high-contrast, organic grocery aesthetic:
+The design system replicates the Asian Stores branding with a clean, high-contrast, organic grocery aesthetic:
 
-| Token | Hex Code | Preview | Purpose |
+| Token Identifier | Hex Code | Visual Reference | Primary Role |
 | :--- | :--- | :--- | :--- |
-| **Forest Green (Primary)** | `#1F7A3A` | Green | Primary brand color, headers, CTAs, badges |
-| **Deep Forest Green** | `#145C2A` | Dark Green | Cash price highlight, card titles, hero gradient |
-| **Soft Mint** | `#E8F5EC` | Mint | Selected tabs, pill badges, subtle active backgrounds |
+| **Forest Green (Primary)** | `#1F7A3A` | Green | Primary brand color, headers, action buttons, active badges |
+| **Deep Forest Green** | `#145C2A` | Dark Green | Cash price emphasis, hero banner gradients, primary headings |
+| **Soft Mint** | `#E8F5EC` | Mint | Active chips, demo login pill, quantity stepper surfaces |
 | **Cream White Background**| `#F7FBF8` | Warm White | Main screen background for warmth and soft contrast |
-| **Pure White** | `#FFFFFF` | White | Product cards, dialogs, inputs, checkout summary |
-| **Charcoal Ink** | `#102018` | Dark Slate | High legibility typography |
-| **Border Line** | `#D7E5DB` | Sage Border | Card borders, dividers, inputs |
-| **Harvest Amber / Danger**| `#C45C26` | Amber/Red | Savings badge ("You save ₹XX"), warnings |
-| **Star Gold** | `#E8B923` | Gold | Rating stars |
+| **Pure White** | `#FFFFFF` | White | Elevation surfaces, modals, input fields, checkout summary |
+| **Charcoal Ink** | `#102018` | Dark Slate | High-legibility typography |
+| **Border Line** | `#D7E5DB` | Sage Border | Subtle card borders, dividers, chip outlines |
+| **Harvest Amber / Danger**| `#C45C26` | Amber/Red | Savings badges (*"You save ₹XX"*), warning alerts |
+| **Star Gold** | `#E8B923` | Gold | Star ratings & review scoring |
 
 ---
 
-## 🛒 Key User Flows & Complete Button Interactivity
+## Key User Flows & Complete Interactivity
 
 ### 1. Pre-Opening Basket Animation (`SplashScreen`)
-- **Physics & Motion**: Animated wicker lid rotates open with cubic easing (`-55deg`), container bounces with elastic scale, and 4 farm-fresh grocery items (`🌾` rice, `🫒` cold-pressed oil, `🌶️` dry red chilly, `🥥` fresh coconut) float out smoothly.
+- **Physics & Motion**: Animated wicker lid rotates open with cubic easing (`-55deg`), container bounces with elastic scale, and 4 farm-fresh grocery items (rice, cold-pressed oil, dry red chilly, fresh coconut) float out smoothly.
 - **Demo-Friendly Controls**: Includes a **Skip ›** button in the header and tap-to-skip so presenters never get delayed during pitches.
 
 ### 2. Authentication Screen (`AuthScreen`)
-- **1-Tap Quick Demo Login**: Single click on **"⚡ 1-Tap Demo Login (Priya S.)"** logs in instantly with pre-configured demo credentials without requiring any keyboard typing.
+- **1-Tap Quick Demo Login**: Single click on **"1-Tap Demo Login (Priya S.)"** logs in instantly with pre-configured demo credentials without requiring any keyboard typing.
 - **Multiple Login Modes**:
   - Email/Password login (`demo@asianstores.in` / `asian123`)
   - Registration tab
@@ -73,8 +73,8 @@ The design replicates the Asian Stores branding with a clean, high-contrast, org
 - **Order Placement**: Deducts and creates an official order `AS-XXXXX`, clears cart, and navigates to the tracking flow.
 
 ### 7. Interactive Order Tracking (`OrdersScreen`)
-- **4-Stage Visual Status Timeline**: `Placed` ➔ `Packed` ➔ `Out for delivery` ➔ `Delivered`.
-- **"Demo: Advance Tracking Status" Button**: Tapping this button during a presentation instantly moves the simulated order to the next step, letting you demonstrate real-time tracking progression live!
+- **4-Stage Visual Status Timeline**: `Placed` to `Packed` to `Out for delivery` to `Delivered`.
+- **"Demo: Advance Tracking Status" Button**: Tapping this button during a presentation instantly moves the simulated order to the next step, letting you demonstrate real-time tracking progression live.
 - **Reorder & Cancel**: Cancel active orders when placed, or 1-tap **"Reorder these items"** to re-add everything to the basket.
 
 ### 8. Account & Store Policies (`AccountScreen`)
@@ -86,7 +86,7 @@ The design replicates the Asian Stores branding with a clean, high-contrast, org
 
 ---
 
-## 🛠️ Codebase Structure
+## Codebase Structure
 
 ### 1. React Native (Expo SDK 58)
 Located in root `c:\Users\ADMIN\Asian-Stores-App\`:
@@ -146,7 +146,7 @@ flutter_asian_stores/
 
 ---
 
-## 📦 How to Build the `.apk` File
+## How to Build the `.apk` File
 
 ### Method A: EAS Build (Recommended for React Native / Expo)
 EAS builds the standalone installable `.apk` in the cloud without requiring local Android SDK or Mac/Linux toolchains:
@@ -157,7 +157,7 @@ EAS builds the standalone installable `.apk` in the cloud without requiring loca
    ```
 2. **Log In to your Expo account**:
    ```bash
-   eas login
+   npx eas-cli login
    ```
 3. **Build the Standalone APK**:
    ```bash
@@ -185,3 +185,10 @@ flutter pub get
 flutter build apk --release
 # The APK is generated at: build/app/outputs/flutter-apk/app-release.apk
 ```
+
+---
+
+## Contributors
+
+- **Rohan Chand M** — Lead Developer & Mobile Systems Architect — [github.com/rohan-chand-m-01](https://github.com/rohan-chand-m-01)
+- **Venkatesh Reddy K** — Core Contributor & Product Co-Lead — [github.com/VenkateshReddy007](https://github.com/VenkateshReddy007)

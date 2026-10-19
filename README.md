@@ -1,261 +1,305 @@
 <div align="center">
 
-# 🌿 Asian Stores Mobile App
+# Asian Stores Mobile Application
 
-### *Premium Quality Groceries — From Rural Harvests to Your Doorstep*
+### Enterprise-Grade Mobile Client for Asian Stores (asianstores.in)
 
-[![React Native](https://img.shields.io/badge/React_Native-0.88-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactnative.dev/)
-[![Expo](https://img.shields.io/badge/Expo_SDK-58-000020?style=for-the-badge&logo=expo&logoColor=white)](https://expo.dev/)
-[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Android APK](https://img.shields.io/badge/Build-Android_.APK_Ready-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://expo.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+[![React Native](https://img.shields.io/badge/React_Native-0.88.0-20232A?style=flat-square&logo=react&logoColor=61DAFB)](https://reactnative.dev/)
+[![Expo](https://img.shields.io/badge/Expo_SDK-58.0-000020?style=flat-square&logo=expo&logoColor=white)](https://expo.dev/)
+[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?style=flat-square&logo=flutter&logoColor=white)](https://flutter.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Android APK](https://img.shields.io/badge/Artifact-Android_.APK_Ready-1F7A3A?style=flat-square&logo=android&logoColor=white)](https://expo.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](LICENSE)
 
-<br/>
+<br />
 
-A high-polish, full-stack demo mobile application conversion of [**Asian Stores (asianstores.in)**](https://asianstores.in/) (i2 Agro Products Private Limited, Chennai · Est. 2002).
+An enterprise-ready, cross-platform mobile client engineered to replicate and elevate the e-commerce infrastructure of [**Asian Stores**](https://asianstores.in/) (i2 Agro Products Private Limited, Chennai, Est. 2002).
 
-**Every single button, interaction, state transition, and user flow is 100% functional, responsive, and ready for live client presentations.**
+Every button, navigation pathway, state machine transition, and transaction calculation is fully functional, deterministic, and optimized for high-fidelity client evaluations.
 
-Available in **both React Native (Expo SDK 58)** and **Flutter** with standalone **Android `.apk` build configurations**.
+**Delivered simultaneously in React Native (Expo SDK 58) and Flutter (Material 3).**
 
 ---
 
-[Explore Features](#-key-features) •
-[Color Palette](#-white--green-color-palette) •
-[Dual Architecture](#-dual-architecture-react-native--flutter) •
-[Building the APK](#-how-to-generate-the-android-apk) •
-[Demo Credentials](#-demo-credentials--walkthrough-cheat-sheet) •
-[Contributors](#-contributors)
+[System Capabilities](#system-capabilities) &bull;
+[Design System & Tokens](#design-system--color-tokens) &bull;
+[Technical Architecture](#technical-architecture) &bull;
+[Build & Deployment](#build--deployment-procedures) &bull;
+[Demo Credentials](#demo-credentials--evaluation-reference) &bull;
+[Contributors](#contributors)
 
 </div>
 
 ---
 
-## 🌟 Highlights & Client Demo Interactivity
+## Executive Overview
 
-This mobile experience converts every facet of the [Asian Stores web platform](https://asianstores.in/) into an authentic mobile app:
+Asian Stores serves thousands of households across Chennai with farm-fresh grains, cold-pressed oils, handpicked spices, and traditional provisions. This project provides a full-featured native mobile client that mirrors the live web store's operations while introducing mobile-native patterns:
 
-- 🧺 **Pre-Opening Wicker Basket Animation**: Physics-based opening animation where the basket lid rotates open with cubic easing, elastic container scaling, and 4 farm groceries (`🌾` aged rice, `🫒` cold-pressed oil, `🌶️` dry red chilly, `🥥` fresh coconut) float out smoothly before landing on authentication. Includes a **Skip ›** button for instant presentation access.
-- ⚡ **1-Tap Instant Demo Login**: Built-in 1-tap demo chip that auto-authenticates as **Priya S.** without typing. Also supports manual email/password, OTP (`4821`), Guest Checkout, and Google sign-in.
-- 🏷️ **Dynamic Cash Price vs. MRP System**: Real-time savings calculation comparing standard MRP against the discounted Cash Settlement Price.
-- ⚖️ **Interactive Pack Size Switcher**: Instant switching between pack variants (`100 gms`, `250 gms`, `500 gms`, `1 kg`, or `100 ml`, `500 ml`, `1 L`). Recalculates cash price, savings badge, and total bill in real time.
-- 🛒 **Complete Basket & Cart Management**: Quantity steppers (`+`/`-`), instant item removal, clear basket safety dialog, and live subtotal breakdown.
-- 📍 **Chennai Delivery Zone Validation**: Real-time validation restricted to supported delivery pincodes: **Perungudi (`600096`)**, **Thuraipakkam (`600097`)**, and **Karapakkam (`600097`)**.
-- 🎟️ **1-Tap Clickable Promo Coupons**: Tap `WELCOME` (10% off), `ASIAN50` (Flat ₹50 off), or `CHARITY` (Extra ₹20 off) for instant auto-fill and real-time discount calculation.
-- 💳 **Multiple Settlement Modes**: Supports Cash on Delivery (COD), UPI (with validation), and Debit/Credit Card.
-- 🚚 **4-Stage Interactive Order Tracker**: Live visual tracker (`Placed` ➔ `Packed` ➔ `Out for delivery` ➔ `Delivered`) equipped with a **"Demo: Advance Tracking Status"** button that advances the status live during presentations.
-- ⭐ **Customer Reviews & Live Rating Engine**: View customer feedback and submit new reviews with interactive 1–5 star ratings that instantly recalculate and live-update product rating averages and review counts.
-- 🤝 **Social Impact Integration**: Automatically highlights the real Asian Stores pledge: **₹200 from every live order is donated to rural community welfare**.
+- **Physics-Driven Basket Opening Simulation**: Multi-stage opening lid animation with cubic easing, container scaling, and floating provisions before transitioning to session initialization. Includes an instant bypass control for rapid testing.
+- **One-Tap Automated Authentication**: Instant evaluation authentication as Priya S. without manual input, alongside standard credential verification, SMS/OTP simulation (Code: `4821`), Guest Checkout, and Google Identity simulation.
+- **Dynamic Settlement Pricing Engine**: Real-time cash settlement pricing contrasted against struck-through MRP, displaying absolute rupee savings across variable package dimensions.
+- **Unit and Pack Dimension Selector**: Live pack-size scaling (`100 gms`, `250 gms`, `500 gms`, `1 kg`, `100 ml`, `500 ml`, `1 L`) with instantaneous unit-cost recalculation and subtotal scaling.
+- **Cart State Machine**: Complete cart synchronization supporting quantity stepping, individual item clearance, batch cart purge, and live threshold-based delivery fee computation.
+- **Geographic Zone Verification**: Strict postal code verification reflecting Asian Stores' active logistics routing in Chennai: Perungudi (`600096`), Thuraipakkam (`600097`), and Karapakkam (`600097`).
+- **Interactive Discount Vouchers**: One-tap discount voucher chips (`WELCOME` for 10% percentage discount, `ASIAN50` for flat ₹50 rebate, `CHARITY` for ₹20 concession) with instant mathematical deduction.
+- **Multi-Rail Payment Gateway Simulation**: Functional payment options for Cash on Delivery (COD), UPI validation, and 16-digit card tokenization.
+- **Deterministic 4-Phase Logistics Tracking**: Complete fulfillment progression (`Placed` to `Packed` to `Out for Delivery` to `Delivered`) featuring a dedicated **Advance Tracking Status** controller for live demonstration of state transitions.
+- **Review & Rating Aggregator**: Customer feedback module with interactive 5-star scoring and text submissions that recalculate aggregate star ratings and review counts dynamically.
+- **Social Impact Accounting**: Direct integration of the store's charitable pledge, noting ₹200 allocated toward rural development initiatives for every order placed.
 
 ---
 
-## 🎨 White & Green Color Palette
+## Design System & Color Tokens
 
-Designed specifically for organic agro-products and groceries with a refreshing, high-contrast, clean modern look:
+The visual identity is anchored on an organic, high-contrast palette calibrated specifically for agro-products, delivering clear typographic hierarchy and optimal readability.
 
-| Token | Hex Value | Role in Application |
+| Token Identifier | Hex Value | Primary Application |
 | :--- | :--- | :--- |
-| **Forest Green (Primary)** | `#1F7A3A` | Primary headers, action buttons, active tab indicators, badges |
-| **Deep Forest Green** | `#145C2A` | Hero banner gradient, bold cash price highlights |
-| **Soft Mint** | `#E8F5EC` | Selected chips, demo login pill, quantity stepper background |
-| **Cream White** | `#F7FBF8` | Warm organic app background (eliminates harsh digital glare) |
-| **Pure White** | `#FFFFFF` | Surface cards, modals, input containers, bottom navigation |
-| **Charcoal Ink** | `#102018` | Primary high-legibility typography |
-| **Border Line** | `#D7E5DB` | Refined card borders, dividers, chip outlines |
-| **Harvest Amber** | `#C45C26` | Savings badge (*"You save ₹XX on cash settlement"*), alerts |
-| **Star Gold** | `#E8B923` | Rating stars & review highlights |
+| `AppColors.green` | `#1F7A3A` | Primary brand identifier, primary action buttons, active tab indicators, headers |
+| `AppColors.greenDark` | `#145C2A` | Hero banner gradient, bold settlement price emphasis, high-contrast text |
+| `AppColors.greenSoft` | `#E8F5EC` | Selected chips, demo login pill, quantity stepper surfaces, card accents |
+| `AppColors.cream` | `#F7FBF8` | Primary scaffold background, preventing harsh digital glare |
+| `AppColors.white` | `#FFFFFF` | Surface elevation cards, dialogs, form input fields, bottom navigation |
+| `AppColors.ink` | `#102018` | Primary high-density typographic elements |
+| `AppColors.muted` | `#5B6B62` | Secondary labels, struck-through MRP references, metadata timestamps |
+| `AppColors.line` | `#D7E5DB` | Subtle structural borders, input outlines, list dividers |
+| `AppColors.danger` | `#C45C26` | Savings highlight badges (*"You save ₹XX on cash settlement"*), alert notices |
+| `AppColors.gold` | `#E8B923` | Star ratings and review scoring |
 
 ---
 
-## 📱 Dual Architecture: React Native & Flutter
+## Technical Architecture
 
-To ensure maximum versatility, the complete application is provided in **both industry-standard mobile frameworks**:
+The application is structured into two autonomous, production-grade implementations sharing identical business logic, data models, and user experience flows.
+
+### 1. React Native Specification
+- **Runtime Environment**: React Native 0.88.0 on Expo SDK 58.0
+- **Type Safety**: TypeScript 6.0 with strict compile-time checks (`noEmit` verification: 0 errors)
+- **Navigation System**: React Navigation 7.x (Native Stack Navigator combined with Bottom Tab Navigator)
+- **State Management**: Centralized React Context Provider with custom hooks (`StoreProvider`, `useStore`)
+- **Responsive Layout**: Platform-aware container (`ScreenWrap`) supporting native Android/iOS viewports and constrained web preview framing
+- **Packaging Target**: Standalone Android `.apk` supported natively via EAS Build and local Gradle assemble
 
 ```
 Asian-Stores-App/
-├── App.tsx                          # React Native Root Navigator & Tabs
-├── app.json                         # Expo configuration (com.asianstores.app)
-├── eas.json                         # EAS Build configuration (Direct APK profile)
-├── package.json                     # React Native dependencies
+├── App.tsx                          # Root Stack & Tab Navigation Orchestrator
+├── app.json                         # Native Configuration (Package: com.asianstores.app)
+├── eas.json                         # Cloud Build Profile (buildType: apk)
+├── package.json                     # Node Modules & Dependency Declarations
 ├── src/
-│   ├── theme.ts                     # White & Green design tokens & seed auth
-│   ├── data.ts                      # 20+ grocery products, categories, zones, FAQs
-│   ├── store.tsx                    # React Context global state store
-│   ├── ui.tsx                       # Reusable ProductCard, PrimaryButton, Qty, Stars
-│   ├── navigation.ts                # TypeScript Stack & Tab param lists
+│   ├── theme.ts                     # Design Tokens & Demo Authentication Seed
+│   ├── data.ts                      # 20+ Product Catalog, Delivery Zones, Policies
+│   ├── store.tsx                    # Store Context, Reducers & Global State Actions
+│   ├── ui.tsx                       # Atoms & Molecules (ProductCard, Buttons, Qty)
+│   ├── navigation.ts                # Strict Navigation Route Param Definitions
 │   └── screens/
-│       ├── SplashScreen.tsx         # Pre-opening basket physics animation
-│       ├── AuthScreen.tsx           # 1-Tap demo login, email, phone OTP, guest
-│       ├── HomeScreen.tsx           # Charity bar, search, hero, categories, featured
-│       ├── ShopScreen.tsx           # Full catalog, category chips, sort, in-stock
-│       ├── ProductScreen.tsx        # Dynamic pack size selector, cash price, reviews
-│       ├── CartScreen.tsx           # Basket itemized lines, quantity, totals
-│       ├── CheckoutScreen.tsx       # Saved addresses, Chennai zones, coupon chips
-│       ├── OrdersScreen.tsx         # Orders list, 4-step tracking timeline
-│       ├── AccountScreen.tsx        # Profile edit, FAQs accordion, policies, contact
-│       └── ExtraScreens.tsx         # Search, filters, wishlist, chocolates aisle
-│
-└── flutter_asian_stores/            # Complete Flutter Implementation
-    ├── pubspec.yaml                 # Flutter package manifest & dependencies
-    └── lib/
-        ├── main.dart                # MultiProvider & Material 3 entry point
-        ├── theme/app_theme.dart     # AppTheme & light color scheme
-        ├── models/models.dart       # Product, Pack, Review, Order, Address models
-        ├── data/mock_data.dart      # Catalog, categories, coupons, delivery zones
-        ├── providers/store_provider.dart # ChangeNotifier global state engine
-        ├── widgets/product_card.dart# Reusable ProductCard with cash pricing
-        └── screens/
-            ├── splash_screen.dart   # Animated wicker basket with floating items
-            ├── auth_screen.dart     # 1-Tap demo, OTP, registration, guest
-            ├── home_screen.dart     # Charity bar, hero, category browser
-            ├── shop_screen.dart     # Filter chips, in-stock toggle, sorting
-            ├── product_screen.dart  # Pack switcher, quantity stepper, write review
-            ├── cart_screen.dart     # Basket list, line items, order summary
-            ├── checkout_screen.dart # Addresses, clickable coupons, payments
-            ├── orders_screen.dart   # Order cards, 4-step status stepper, reorder
-            └── account_screen.dart  # Profile, FAQ expansion tiles, studio contact
+│       ├── SplashScreen.tsx         # Physics-Based Basket Lid & Provisions Animation
+│       ├── AuthScreen.tsx           # Automated Demo Login, Password, OTP, Guest
+│       ├── HomeScreen.tsx           # Charity Bar, Search, Hero, Categories, Featured
+│       ├── ShopScreen.tsx           # Filter Chips, In-Stock Filters, Sorting Engine
+│       ├── ProductScreen.tsx        # Unit Dimension Selector, Pricing, Review Engine
+│       ├── CartScreen.tsx           # Line Items, Quantity Controls, Subtotal Engine
+│       ├── CheckoutScreen.tsx       # Address Engine, Coupon Verification, Payments
+│       ├── OrdersScreen.tsx         # 4-Stage Status Tracker, Simulated Progression
+│       ├── AccountScreen.tsx        # Profile Editor, FAQ Accordion, Store Policies
+│       └── ExtraScreens.tsx         # Search, Filters, Wishlist, British Chocolates
+```
+
+### 2. Flutter Specification
+- **Runtime Environment**: Flutter 3.x / Dart 3.x
+- **UI Framework**: Material Design 3 (`AppTheme.lightTheme`)
+- **State Management**: Provider Architecture (`ChangeNotifierProvider`, `StoreProvider`)
+- **Architecture Pattern**: Clean Architecture with dedicated separation of Models, Data Providers, Widgets, and Screens
+- **Packaging Target**: Standalone Android Release APK (`flutter build apk --release`)
+
+```
+flutter_asian_stores/
+├── pubspec.yaml                     # Flutter Package Manifest & Asset Registry
+└── lib/
+    ├── main.dart                    # Application Root with MultiProvider
+    ├── theme/
+    │   └── app_theme.dart           # Design Tokens, Color Scheme & Widget Themes
+    ├── models/
+    │   └── models.dart              # Product, Pack, Review, Order, Address Models
+    ├── data/
+    │   └── mock_data.dart           # Deterministic Product & Store Datasets
+    ├── providers/
+    │   └── store_provider.dart      # Business Logic & Global State Machine
+    ├── widgets/
+    │   └── product_card.dart        # Reusable Product Card with Settlement Pricing
+    └── screens/
+        ├── splash_screen.dart       # AnimationController Basket Lid Rotation & Float
+        ├── auth_screen.dart         # Authentication Modes with One-Tap Demo Access
+        ├── home_screen.dart         # Home View with Category Scroller & Collections
+        ├── shop_screen.dart         # Catalog with Category Chips & Sorting Logic
+        ├── product_screen.dart      # Dimension Switching & Review Modal Workflow
+        ├── cart_screen.dart         # Basket Management with Subtotal Computations
+        ├── checkout_screen.dart     # Address Selection, Voucher Deduction, Checkout
+        ├── orders_screen.dart       # Order History & Interactive 4-Phase Stepper
+        └── account_screen.dart      # Profile Management, Studio Contact, Policies
 ```
 
 ---
 
-## ⚡ Quick Start Guide
+## Functional Capabilities Matrix
 
-### 1. React Native (Expo SDK 58)
+```
+[Opening Animation] ──> [Authentication] ──> [Home / Catalog] ──> [Product View]
+        │                      │                     │                    │
+   Skip Control          1-Tap Demo / OTP     Category Browser     Pack Dimension
+                               │                     │             Live Savings
+                         Guest Access         Search Engine               │
+                                                     │                    │
+                                                     ▼                    ▼
+[Order Tracking] <── [Order Confirmation] <── [Checkout & Pay] <── [Cart / Basket]
+        │                      │                     │                    │
+  4-Stage Stepper        Order Generation     Chennai Zone Check    Quantity Stepper
+  Simulated Advance      Invoice Summary      Coupon Deduction      Fee Computation
+```
 
-#### Prerequisites
-- Node.js 18+ & npm
+1. **Pre-Opening Animation**: Built using spring physics (`friction: 5`) and cubic easing to lift the woven basket lid by `-55deg` while floating harvest staples upward. Equipped with a header bypass control (`Skip ›`) and root gesture detection.
+2. **One-Tap Evaluation Login**: Bypasses authentication input barriers during stakeholder reviews by pre-filling and authorizing session state for Priya S. (`demo@asianstores.in`).
+3. **Dynamic Unit Scaling**: Automatically converts base kilogram, gram, and milliliter configurations into proportional wholesale and retail units.
+4. **Interactive Status Advance**: The order tracking screen includes a live debugging controller (`Demo: Advance Tracking Status`) that advances orders sequentially through `Placed`, `Packed`, `Out for Delivery`, and `Delivered`.
+5. **Dynamic Review Ingestion**: User reviews submitted via the modal dialog compute new weighted mathematical averages for the target product and persist within memory across views.
 
-#### Run locally:
+---
+
+## Build & Deployment Procedures
+
+### 1. React Native (Expo) Setup
+
+#### Local Execution
 ```bash
-# 1. Clone the repository
+# Clone the repository
 git clone https://github.com/rohan-chand-m-01/Asian-Stores-App.git
 cd Asian-Stores-App
 
-# 2. Install dependencies
+# Install project dependencies
 npm install
 
-# 3. Typecheck
+# Verify TypeScript compilation integrity
 npx tsc --noEmit
 
-# 4. Start Expo Dev Server (Web Preview)
+# Launch web development server (mobile preview container)
 npm run web
-# Opens at http://localhost:8081 or http://localhost:8082 in mobile frame preview
 
-# 5. Run on Mobile Device
+# Launch native development server (Expo Go QR)
 npx expo start
-# Scan the displayed QR code with the Expo Go app on iOS / Android
 ```
 
----
-
-### 2. Flutter Application
-
-#### Prerequisites
-- Flutter SDK 3.x & Dart 3.x
-
-#### Run locally:
+#### Android Standalone APK Build (EAS Cloud)
+The project's `eas.json` is configured specifically for internal distribution `.apk` generation:
 ```bash
-cd flutter_asian_stores
-
-# Fetch dependencies
-flutter pub get
-
-# Run on Chrome / Emulator / Physical device
-flutter run
-```
-
----
-
-## 📦 How to Generate the Android `.apk`
-
-### Option 1: EAS Cloud Build (Zero Native Setup Required)
-[`eas.json`](eas.json) is already pre-configured with `"buildType": "apk"` under the `preview` profile:
-
-```bash
-# 1. Log in to EAS (free Expo account)
+# Authenticate with Expo Application Services
 npx eas-cli login
 
-# 2. Trigger the APK cloud build
+# Initiate the cloud build pipeline
 npx eas-cli build -p android --profile preview
 ```
-*EAS compiles the app in the cloud and provides a direct, installable `.apk` download link.*
+*Upon completion, EAS generates a direct downloadable `.apk` link compatible with standard Android hardware.*
 
----
-
-### Option 2: Local React Native APK Build (Android Studio / Gradle)
+#### Local Android APK Build (Gradle)
 ```bash
-# Generate native Android wrapper
+# Generate native Android project via Continuous Native Generation
 npx expo prebuild --platform android
 
 # Compile release APK
 cd android
 ./gradlew assembleRelease
-# The standalone APK will be created at:
-# android/app/build/outputs/apk/release/app-release.apk
+# Output artifact: android/app/build/outputs/apk/release/app-release.apk
 ```
 
 ---
 
-### Option 3: Flutter Release APK Build
+### 2. Flutter Setup
+
+#### Local Execution
+```bash
+cd flutter_asian_stores
+
+# Retrieve dependencies
+flutter pub get
+
+# Run on connected device or simulator
+flutter run
+```
+
+#### Android Standalone APK Build
 ```bash
 cd flutter_asian_stores
 flutter pub get
 flutter build apk --release
-# The standalone APK will be created at:
-# build/app/outputs/flutter-apk/app-release.apk
+# Output artifact: build/app/outputs/flutter-apk/app-release.apk
 ```
 
 ---
 
-## 🔑 Demo Credentials & Walkthrough Cheat Sheet
+## Demo Credentials & Evaluation Reference
 
-| Field | Demo Value | Notes |
+| Parameter | Value | Functional Role |
 | :--- | :--- | :--- |
-| **⚡ 1-Tap Login** | Button on Auth Screen | One click enters as **Priya S.** without typing |
-| **Demo Email** | `demo@asianstores.in` | Standard email login |
-| **Demo Mobile** | `8825604253` | Mobile number matching studio support |
-| **Demo Password** | `asian123` | Password for all test accounts |
-| **Demo OTP** | `4821` | Auto-filled 4-digit verification code |
-| **Coupon 1** | `WELCOME` | **10% off** your order |
-| **Coupon 2** | `ASIAN50` | **Flat ₹50 off** |
-| **Coupon 3** | `CHARITY` | **Extra ₹20 discount** |
-| **Chennai Zones** | `600096`, `600097` | Perungudi, Thuraipakkam, Karapakkam |
-| **Order Advance** | *"Demo: Advance Tracking Status"* | Advances timeline (`Placed` ➔ `Packed` ➔ `Out for delivery` ➔ `Delivered`) |
+| **Instant Access** | `1-Tap Demo Login (Priya S.)` | Single-click authentication bypass |
+| **Test Email** | `demo@asianstores.in` | Standard authentication identifier |
+| **Test Mobile** | `8825604253` | Mobile identifier matching Asian Stores studio line |
+| **Master Password** | `asian123` | Global testing password for all profiles |
+| **Verification OTP** | `4821` | Simulated four-digit SMS code |
+| **Voucher Code 1** | `WELCOME` | Applies 10% percentage discount to line items |
+| **Voucher Code 2** | `ASIAN50` | Applies flat ₹50 deduction to line items |
+| **Voucher Code 3** | `CHARITY` | Applies ₹20 supplemental community discount |
+| **Valid Postal Zones** | `600096`, `600097` | Supported delivery sectors (Perungudi, Thuraipakkam, Karapakkam) |
+| **State Controller** | `Advance Tracking Status` | Sequentially transitions fulfillment status on tracking view |
 
 ---
 
-## 👥 Contributors
-
-This project was engineered and maintained by:
+## Contributors
 
 <table>
   <tr>
-    <td align="center">
+    <td align="center" width="50%">
       <a href="https://github.com/rohan-chand-m-01">
         <img src="https://github.com/rohan-chand-m-01.png" width="100px;" alt="Rohan Chand M"/><br />
         <sub><b>Rohan Chand M</b></sub>
       </a><br />
-      <sub>Lead Developer & Mobile Architect</sub>
+      <sub>Lead Developer & Mobile Systems Architect</sub><br />
+      <a href="https://github.com/rohan-chand-m-01">github.com/rohan-chand-m-01</a>
     </td>
-    <td align="center">
-      <a href="https://github.com/rohan-chand-m-01/Asian-Stores-App">
-        <img src="https://ui-avatars.com/api/?name=Venkatesh+Reddy+K&background=1F7A3A&color=fff&size=100" width="100px;" alt="Venkatesh Reddy K"/><br />
+    <td align="center" width="50%">
+      <a href="https://github.com/VenkateshReddy007">
+        <img src="https://github.com/VenkateshReddy007.png" width="100px;" alt="Venkatesh Reddy K"/><br />
         <sub><b>Venkatesh Reddy K</b></sub>
       </a><br />
-      <sub>Core Contributor & Product Co-Lead</sub>
+      <sub>Core Contributor & Product Co-Lead</sub><br />
+      <a href="https://github.com/VenkateshReddy007">github.com/VenkateshReddy007</a>
     </td>
   </tr>
 </table>
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the [MIT License](LICENSE) — see the LICENSE file for details.
+This software is distributed under the terms of the [MIT License](LICENSE).
+
+```
+MIT License
+
+Copyright (c) 2026 Rohan Chand M, Venkatesh Reddy K
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+```
 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ for <b>Asian Stores</b> (i2 Agro Products Private Limited, Chennai).</sub>
+  <sub>Engineered for <b>Asian Stores</b> &bull; i2 Agro Products Private Limited, Okkiyam Thuraipakkam, Chennai-600097</sub>
 </div>
