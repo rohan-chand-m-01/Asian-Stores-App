@@ -23,7 +23,8 @@ Every button, navigation pathway, state machine transition, and transaction calc
 
 [System Capabilities](#system-capabilities) &bull;
 [Design System & Tokens](#design-system--color-tokens) &bull;
-[Technical Architecture](#technical-architecture) &bull;
+[System Architecture](#system-architecture) &bull;
+[Technical Specifications](#technical-specifications) &bull;
 [Build & Deployment](#build--deployment-procedures) &bull;
 [Demo Credentials](#demo-credentials--evaluation-reference) &bull;
 [Contributors](#contributors)
@@ -69,7 +70,104 @@ The visual identity is anchored on an organic, high-contrast palette calibrated 
 
 ---
 
-## Technical Architecture
+## System Architecture
+
+The client application implements a decoupled, multi-tier reactive architecture shared identically across both React Native and Flutter frameworks:
+
+```mermaid
+flowchart TD
+    subgraph UI_Layer["1. Presentation & Interaction Layer"]
+        direction TB
+        Splash["Splash View<br/>Physics Basket Animation & Bypass"]
+        Auth["Authentication View<br/>1-Tap Demo, Email, Phone OTP, Guest"]
+        Home["Home View<br/>Hero Banner, Categories, Collections"]
+        Shop["Catalog View<br/>Category Chips, Sort, In-Stock Filter"]
+        Product["Product Detail View<br/>Dimension Selector, Cash Pricing, Reviews"]
+        Cart["Basket View<br/>Line Items, Stepper, Subtotal Engine"]
+        Checkout["Checkout View<br/>Zone Verification, Vouchers, Payments"]
+        Orders["Order Tracking View<br/>4-Phase Timeline & Status Advance"]
+        Account["Account View<br/>Profile, Policies, FAQs, Studio Info"]
+    end
+
+    subgraph State_Layer["2. Business Logic & State Management Layer"]
+        direction TB
+        subgraph Store_Engines["Shared State Machine (React Context / ChangeNotifier)"]
+            AuthEngine["Session & Auth Manager"]
+            CatalogEngine["Catalog & Filter Engine"]
+            PricingEngine["Dynamic Pricing & Unit Scaler"]
+            CartEngine["Cart & Subtotal State Machine"]
+            RoutingEngine["Postal Zone Verification (600096, 600097)"]
+            VoucherEngine["Voucher Rebate Engine (WELCOME, ASIAN50, CHARITY)"]
+            OrderLifecycleEngine["Order Fulfillment State Machine"]
+            ReviewEngine["Review & Rating Aggregator"]
+        end
+    end
+
+    subgraph Domain_Layer["3. Domain & Data Infrastructure"]
+        direction TB
+        ProductCatalog["Product Catalog (20+ SKUs across 10 Categories)"]
+        SeedData["Seed Addresses & Delivery Zones"]
+        OrderRecords["In-Memory Ledger (Deterministic Orders)"]
+        AssetPipeline["Cloudinary CDN Asset Pipeline (f_auto, q_auto)"]
+        CharityPledge["Community Impact Ledger (₹200 per live order)"]
+    end
+
+    subgraph Build_Layer["4. Target Platforms & Compilation Pipelines"]
+        direction LR
+        subgraph ReactNative_Pipeline["React Native / Expo"]
+            MetroBundler["Metro Bundler"]
+            EASCloud["EAS Cloud Build"]
+            GradleLocal["Local Gradle Pipeline"]
+            ExpoAPK["Android .APK (Preview / Internal)"]
+        end
+        subgraph Flutter_Pipeline["Flutter Engine"]
+            DartAOT["Dart AOT Compiler"]
+            FlutterTool["Flutter Build Engine"]
+            FlutterAPK["Android .APK (Release)"]
+        end
+    end
+
+    Splash --> Auth
+    Auth --> AuthEngine
+    Home --> CatalogEngine
+    Shop --> CatalogEngine
+    Product --> PricingEngine
+    Product --> ReviewEngine
+    Cart --> CartEngine
+    Checkout --> RoutingEngine
+    Checkout --> VoucherEngine
+    Checkout --> OrderLifecycleEngine
+    Orders --> OrderLifecycleEngine
+
+    CatalogEngine --> ProductCatalog
+    PricingEngine --> ProductCatalog
+    CartEngine --> OrderRecords
+    RoutingEngine --> SeedData
+    OrderLifecycleEngine --> OrderRecords
+    OrderLifecycleEngine --> CharityPledge
+    ProductCatalog --> AssetPipeline
+
+    State_Layer -.-> ReactNative_Pipeline
+    State_Layer -.-> Flutter_Pipeline
+    ReactNative_Pipeline --> ExpoAPK
+    Flutter_Pipeline --> FlutterAPK
+
+    classDef presentation fill:#FFFFFF,stroke:#1F7A3A,stroke-width:2px,color:#102018;
+    classDef state fill:#E8F5EC,stroke:#145C2A,stroke-width:2px,color:#102018;
+    classDef domain fill:#F7FBF8,stroke:#5B6B62,stroke-width:2px,color:#102018;
+    classDef target fill:#FFFFFF,stroke:#C45C26,stroke-width:2px,color:#102018;
+
+    class Splash,Auth,Home,Shop,Product,Cart,Checkout,Orders,Account presentation;
+    class AuthEngine,CatalogEngine,PricingEngine,CartEngine,RoutingEngine,VoucherEngine,OrderLifecycleEngine,ReviewEngine state;
+    class ProductCatalog,SeedData,OrderRecords,AssetPipeline,CharityPledge domain;
+    class MetroBundler,EASCloud,GradleLocal,ExpoAPK,DartAOT,FlutterTool,FlutterAPK target;
+```
+
+*For comprehensive class diagrams, pricing algorithms, and domain modeling specifications, see [ARCHITECTURE.md](ARCHITECTURE.md).*
+
+---
+
+## Technical Specifications
 
 The application is structured into two autonomous, production-grade implementations sharing identical business logic, data models, and user experience flows.
 
@@ -142,20 +240,39 @@ flutter_asian_stores/
 
 ---
 
-## Functional Capabilities Matrix
+## Functional Capabilities & Order Lifecycle
 
-```
-[Opening Animation] ──> [Authentication] ──> [Home / Catalog] ──> [Product View]
-        │                      │                     │                    │
-   Skip Control          1-Tap Demo / OTP     Category Browser     Pack Dimension
-                               │                     │             Live Savings
-                         Guest Access         Search Engine               │
-                                                     │                    │
-                                                     ▼                    ▼
-[Order Tracking] <── [Order Confirmation] <── [Checkout & Pay] <── [Cart / Basket]
-        │                      │                     │                    │
-  4-Stage Stepper        Order Generation     Chennai Zone Check    Quantity Stepper
-  Simulated Advance      Invoice Summary      Coupon Deduction      Fee Computation
+```mermaid
+stateDiagram-v2
+    [*] --> Idle: User initiates session
+    Idle --> CartActive: Add item to basket
+    CartActive --> CartActive: Adjust quantity / Change pack dimensions
+    CartActive --> CheckoutPending: Review & Checkout initiated
+    
+    state CheckoutPending {
+        [*] --> AddressValidation: Select delivery address
+        AddressValidation --> ZoneApproved: Pincode 600096 or 600097
+        AddressValidation --> ZoneBlocked: Outside delivery radius
+        ZoneBlocked --> AddressValidation: Select alternate address
+        
+        ZoneApproved --> VoucherEvaluation: Enter voucher code
+        VoucherEvaluation --> PriceComputed: Apply WELCOME / ASIAN50 / CHARITY
+        PriceComputed --> PaymentSelection: Choose COD / UPI / Card
+    }
+
+    CheckoutPending --> Placed: Order placed (Order ID: AS-XXXXX)
+    
+    state FulfillmentPipeline {
+        Placed --> Packed: Studio dispatch packaging
+        Placed --> Cancelled: User cancels order
+        Packed --> OutForDelivery: Courier assigned
+        OutForDelivery --> Delivered: Handed to customer
+    }
+
+    FulfillmentPipeline --> Reordered: Reorder items triggered
+    Reordered --> CartActive: Items appended to basket
+    Delivered --> [*]
+    Cancelled --> [*]
 ```
 
 1. **Pre-Opening Animation**: Built using spring physics (`friction: 5`) and cubic easing to lift the woven basket lid by `-55deg` while floating harvest staples upward. Equipped with a header bypass control (`Skip ›`) and root gesture detection.
