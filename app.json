@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Asian Stores",
+    "slug": "asian-stores",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.asianstores.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#1F7A3A",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b5a40abc-e645-4529-9df6-44504a61211a"
+      }
+    }
+  }
+}
